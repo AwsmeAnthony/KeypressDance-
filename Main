@@ -1,0 +1,86 @@
+#python code 
+
+
+
+# Made by @AwsmeAnthony 
+# YouTube - https://www.youtube.com/channel/UCFzi6ejOYHeuq0B6sXotfEA
+# Github - https://github.com/AwsmeAnthony
+#
+# And YourNameOneWord
+# Somthing to find you - https://www.yourthing.gov
+# Your Github - https://github.com/YourGithubHere
+#
+# copy and paste here ⬇ before you edit it  
+#
+# If you use this code plese keep this in.(Keep this at the bottom)
+
+
+#import
+import pygame
+from sys import exit
+import keyboard
+pygame.init()
+
+
+#Must have these files in directory 
+me = pygame.image.load("me.png")
+hand = pygame.image.load("hand.png")
+
+#declare variables
+win = pygame.display.set_mode((800,450))
+memid = me.get_rect()
+Rh_pos = (0,0)
+Lh_pos = (0,0)
+
+#move the hands
+def righit_hand(posX : int,posY : int):    
+    global Rh_pos
+    Rh_pos = ((posX,posY))
+def left_hand(posX : int,posY : int):    
+    global Lh_pos
+    Lh_pos = ((posX,posY))
+
+
+#loop
+while True:
+    win.fill((0,255,0))
+
+    #make the exit button work
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+
+    #look for keyboard input
+    if keyboard.is_pressed('0'):
+        righit_hand(420,250)
+        left_hand(340,250)
+    elif keyboard.is_pressed('1'):
+        righit_hand(420,250)
+        left_hand(330,150)
+    elif keyboard.is_pressed('2'):
+        righit_hand(430,150)
+        left_hand(340,250)
+    elif keyboard.is_pressed('3'):
+        righit_hand(430,150)
+        left_hand(330,150)
+    elif keyboard.is_pressed('4'):
+        righit_hand(460,150)
+        left_hand(300,150)
+    elif keyboard.is_pressed('5'):
+        righit_hand(420,250)
+        left_hand(370,190)
+    elif keyboard.is_pressed('6'):
+        righit_hand(420,250)
+        left_hand(360,240)
+
+    #blit stuff on screen 
+    win.blit(me,memid.center)
+    win.blit(hand, Rh_pos)
+    win.blit(hand, Lh_pos)
+    memid.center = (400-180/2,225-235/2)
+
+
+    pygame.display.update()
+
+
+
